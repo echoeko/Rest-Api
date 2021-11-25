@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "ec78b854-b7d3-43f3-bfe9-49e88e03ddea",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/?id=1ff47j31-e748-0007-bccf-cf2kkl4ec06b&title=Multiplication&problem=Multiplication two numbers&point=1&level=beginner&language=python&input=2,3&expected_output=6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1ff47j31-e748-0007-bccf-cf2kkl4ec06b"
+						},
+						{
+							"key": "title",
+							"value": "Multiplication"
+						},
+						{
+							"key": "problem",
+							"value": "Multiplication two numbers"
+						},
+						{
+							"key": "point",
+							"value": "1"
+						},
+						{
+							"key": "level",
+							"value": "beginner"
+						},
+						{
+							"key": "language",
+							"value": "python"
+						},
+						{
+							"key": "input",
+							"value": "2,3"
+						},
+						{
+							"key": "expected_output",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/item?id=1ff47j31-e748-0007-bccf-cf2kkl4ec06b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3136e3cd-c90c-48bb-b9a9-60ca68382ad7",
+							"description": "Hello",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1ff26d62-e748-4907-bccf-cf2eec4ec06b",
+							"description": "Sum",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "d07cb6ee-af91-4d0f-abd7-efe1693a8d3f",
+							"description": "Loop",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1ff47j31-e748-0007-bccf-cf2kkl4ec06b",
+							"description": "Multiplication"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/?id=1ff47j31-e748-0007-bccf-cf2kkl4ec06b&title=Multiplication 2&problem=Multiplication two numbers 2&point=1&level=beginner&language=python&input=2,3&expected_output=6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1ff47j31-e748-0007-bccf-cf2kkl4ec06b"
+						},
+						{
+							"key": "title",
+							"value": "Multiplication 2"
+						},
+						{
+							"key": "problem",
+							"value": "Multiplication two numbers 2"
+						},
+						{
+							"key": "point",
+							"value": "1"
+						},
+						{
+							"key": "level",
+							"value": "beginner"
+						},
+						{
+							"key": "language",
+							"value": "python"
+						},
+						{
+							"key": "input",
+							"value": "2,3"
+						},
+						{
+							"key": "expected_output",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/?id=d07cb6ee-af91-4d0f-abd7-efe1693a8d3f",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3136e3cd-c90c-48bb-b9a9-60ca68382ad7",
+							"description": "Hello",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1ff26d62-e748-4907-bccf-cf2eec4ec06b",
+							"description": "Sum",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "d07cb6ee-af91-4d0f-abd7-efe1693a8d3f",
+							"description": "Loop"
+						},
+						{
+							"key": "id",
+							"value": "1ff47j31-e748-0007-bccf-cf2kkl4ec06b",
+							"description": "Multiplication",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
