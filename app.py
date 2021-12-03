@@ -1,6 +1,6 @@
 from flask import Flask, app, jsonify, request
 
-liste = [
+listOfExams = [
     {
         "id": "3136e3cd-c90c-48bb-b9a9-60ca68382ad7",
         "title": "Say hello with python",
@@ -35,69 +35,48 @@ liste = [
 
 app = Flask(__name__)
 
-# Get all item
-@app.route("/", methods=['GET'])
-def all_item():
-    return jsonify({'list': liste})
-
-# Get item
-@app.route("/item", methods=['GET'])
-def get_item():
+# Get exams
+@app.route("/api/v1/exams", methods=['GET'])
+def get_items():
     id = request.args.get('id')
-    item = [item for item in liste if item['id'] == id]
+    if id=="7d36f948-1f10-4e06-921d-03c63d319169":
+        return jsonify({'list': listOfExams})
+    item = [item for item in listOfExams if item['id'] == id]
+    # Error Handling
     if len(item) == 0:
-        return jsonify({'item': 'Not Found'}), 404
-    return jsonify({'item': item})
+        return jsonify({'error': 'Not Found'}), 404
+    return jsonify({'list': item}), 200
 
-# Add new item
-@app.route("/", methods=['POST'])
+# Add new exam
+@app.route("/api/v1/exams", methods=['POST'])
 def add_item():
-    newItem = {
-        "id": request.args.get('id'),
-        "title": request.args.get('title'),
-        "problem": request.args.get('problem'),
-        "point": request.args.get('point'),
-        "level": request.args.get('level'),
-        "language": request.args.get('language'),
-        "input": request.args.get('input'),
-        "expected_output": request.args.get('expected_output')
-    }
-    liste.append(newItem)
-    return jsonify({'item': newItem}), 201
+    data = request.get_json()
+    listOfExams.append(data)
+    return data, 201
 
-# Update item
-@app.route("/", methods=['PUT'])
+# Update exam
+@app.route("/api/v1/exams", methods=['PUT'])
 def update_item():
-    newItem = {
-        "id": request.args.get('id'),
-        "title": request.args.get('title'),
-        "problem": request.args.get('problem'),
-        "point": request.args.get('point'),
-        "level": request.args.get('level'),
-        "language": request.args.get('language'),
-        "input": request.args.get('input'),
-        "expected_output": request.args.get('expected_output')
-    }
-
-    for id, item in enumerate(liste):
-        if item['id'] == newItem['id']:
+    data = request.get_json()
+    for id, item in enumerate(listOfExams):
+        if item['id'] == data['id']:
             itemId = id
 
-    for key, value in liste[itemId].items():
-        liste[itemId][key] = newItem[key]
+    for key, value in listOfExams[itemId].items():
+        listOfExams[itemId][key] = data[key]
 
-    return jsonify({'item': newItem}), 201
+    return data, 201
 
-#Delete item
-@app.route("/", methods=['DELETE'])
+#Delete Exam
+@app.route("/api/v1/exams", methods=['DELETE'])
 def del_item():
     id = request.args.get('id')
-    item = [item for item in liste if item['id'] == id]
+    item = [item for item in listOfExams if item['id'] == id]
+    # Error Handling
     if len(item) == 0:
-        return jsonify({'item': 'Not found'}), 404
-    liste.remove(item[0])
-    return jsonify({'result': True})
-
+        return jsonify({'error': 'Not found'}), 404
+    listOfExams.remove(item[0])
+    return jsonify({'result': True}),200
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
